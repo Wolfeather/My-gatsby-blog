@@ -2,7 +2,7 @@
 title: LeetCode 每日一题————合并K个排序链表
 date: "2020-04-26T23:06:48.169Z"
 description: LeetCode 第23题自我解析
-tag: LeetCode , 链表
+tags: ["LeetCode" , "链表"]
 ---
 
 LeetCode第23题
