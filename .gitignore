@@ -56,7 +56,9 @@ typings/
 
 # gatsby files
 .cache/
-public
+
+上传打包文件
+#public
 
 # Mac files
 .DS_Store
