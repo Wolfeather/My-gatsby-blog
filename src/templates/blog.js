@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+
 const BlogPageTemplate = ({ data,pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const {totalPage,currentPage,limit,skip} = pageContext
@@ -18,7 +19,7 @@ const BlogPageTemplate = ({ data,pageContext, location }) => {
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <article key={node.fields.slug}>
+          <article key={node.fields.slug} class="post-view">
             <header>
               <h3
                 style={{
