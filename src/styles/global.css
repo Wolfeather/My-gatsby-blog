@@ -10,6 +10,7 @@ body{
   /* background-color: #c4d7ea; */
   background-color: #e6e6e6;
 }
+
 a{
   color: #409EFF;
 }
@@ -26,9 +27,13 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 main, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+  /* font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif; */
   font-family: "PingFang SC","Microsoft YaHei",sans-serif;
 }
 
+code{
+  font-family: 'Fira Mono', monospace;
+}
 body.light {
   --bg: #e6e6e6;
   --bg-secondary: rgb(249, 250, 251);
@@ -62,4 +67,9 @@ body.light {
 
 .post-view{
   border: 1px solid gray;
+}
+
+
+footer{
+  text-align: center;
 }

@@ -57,7 +57,7 @@ const Layout = ({ location, title, children }) => {
     >
       <header>{header}</header>
       <main>{children}</main>
-      <footer>
+      <footer class="footer">
         © {new Date().getFullYear()}, powered by Gatsby
       </footer>
     </div>
