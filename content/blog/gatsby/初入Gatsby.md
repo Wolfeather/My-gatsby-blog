@@ -75,6 +75,6 @@ nvm --version
 ### 'prism-TOMORROW.css' not found
 因为引入了prismjs的样式，我就直接用了。结果在Linux下打包是报错`'prism-TOMORROW.css' not found`。但是我在本地调试的时候一点问题都没有。
 后来我查看了下prism包里的内容：
-![prismjs](./prismjs.png)
+![prismjs](../img/prismjs.png)
 
 **注意：** Linux系统下是严格区分大小写的，所以命名一定要规范，不然会导致build项目失败的。

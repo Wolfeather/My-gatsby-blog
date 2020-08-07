@@ -34,7 +34,8 @@ time, mark, audio, video {
 code{
   font-family: 'Fira Mono', monospace;
 }
-body.light {
+
+light-theme {
   --bg: #e6e6e6;
   --bg-secondary: rgb(249, 250, 251);
   --header: var(--pink);
@@ -47,23 +48,19 @@ body.light {
   --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
 }
 
-@media(prefers-color-scheme: dark){
-  body {
-    -webkit-font-smoothing: antialiased;
-  
-    --bg: #282c35;
-    --bg-secondary: rgb(54, 60, 72);
-    --header: #ffffff;
-    --textNormal: rgba(255, 255, 255, 0.88);
-    --textTitle: #ffffff;
-    --textLink: var(--pink);
-    --hr: hsla(0, 0%, 100%, 0.2);
-    --inlineCode-bg: rgba(115, 124, 153, 0.2);
-    --inlineCode-text: #ffee93;
-    --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
-  }
+dark-theme{
+  -webkit-font-smoothing: antialiased;
+  --bg: #282c35;
+  --bg-secondary: rgb(54, 60, 72);
+  --header: #ffffff;
+  --textNormal: rgba(255, 255, 255, 0.88);
+  --textTitle: #ffffff;
+  --textLink: var(--pink);
+  --hr: hsla(0, 0%, 100%, 0.2);
+  --inlineCode-bg: rgba(115, 124, 153, 0.2);
+  --inlineCode-text: #ffee93;
+  --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
 }
-
 
 .post-view{
   border: 1px solid gray;
