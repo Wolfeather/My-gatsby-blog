@@ -2,7 +2,7 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-15 15:03:55
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-16 18:52:47
+ * @LastEditTime : 2020-12-16 19:09:43
  * @Description  : 
  * @FilePath     : \My-gatsby-blog\gatsby-node.js
  */
@@ -90,48 +90,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
 
   // 拿到所有的tag
-  let tagSet = new Set()
+  const tagSet = new Set()
   posts.forEach(p=>{
     p.node.frontmatter.tags.forEach(t=>{
       tagSet.add(t)
     })
   })
-
-  // for(let t of tagSet.values()){
-
-  // }
-  let tagArr = Array.from(tagSet)
+  // 根据每个tag来生成分页列表
+  const tagArr = Array.from(tagSet)
   tagArr.forEach(async t=> {
-    // const result = await graphql(
-    //   `
-    //     {
-    //       site {
-    //         siteMetadata {
-    //           title
-    //           description
-    //         }
-    //       }
-    //       allMarkdownRemark(
-    //         sort: { fields: [frontmatter___date], order: DESC }
-    //         filter: {frontmatter: {tags: {eq: ${t+""}}}}
-    //       ) {
-    //         edges {
-    //           node {
-    //             excerpt
-    //             fields {
-    //               slug
-    //             }
-    //             frontmatter {
-    //               date(formatString: "YYYY-MM-DD")
-    //               title
-    //               tags
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    //   `
-    // )
     const ps = posts.filter(p=>p.node.frontmatter.tags.includes(t))
     creatPageList(ps, tags, 'tags/'+t ,{tags:t})
   })

@@ -1,3 +1,11 @@
+/*
+ * @Author       : yangwenfan
+ * @Date         : 2020-12-15 15:30:13
+ * @LastEditors  : yangwenfan
+ * @LastEditTime : 2020-12-16 19:05:28
+ * @Description  : 
+ * @FilePath     : \My-gatsby-blog\src\templates\blog-post.js
+ */
 import React from "react"
 import { Link, graphql } from "gatsby"
 
@@ -51,15 +59,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       </article>
 
       <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <ul className="pagination">
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">

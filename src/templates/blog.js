@@ -2,7 +2,7 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-15 15:30:13
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-16 17:18:07
+ * @LastEditTime : 2020-12-16 19:06:31
  * @Description  : 
  * @FilePath     : \My-gatsby-blog\src\templates\blog.js
  */
@@ -31,7 +31,8 @@ const BlogTemplate = ({ data,pageContext, location }) => {
       <SEO title={title} />
       <Bio />
       {posts.map(({ node }) => <BlogBlock node={node} key={node.excerpt}/>)}
-      <div>
+      <ul className="pagination">
+        <li>
           {currentPage - 1 > 0 && (
             <Link
               to={'/blog/' + (currentPage - 1 === 1 ? '' : currentPage - 1)}
@@ -40,14 +41,15 @@ const BlogTemplate = ({ data,pageContext, location }) => {
               ← 上一页
             </Link>
           )}
-        </div>
-        <div>
+        </li>
+        <li>
           {currentPage + 1 <= totalPage && (
             <Link to={'/blog/' + (currentPage + 1)} rel="next">
               下一页 →
             </Link>
           )}
-        </div>
+        </li>
+      </ul>
     </Layout>
   )
 }
