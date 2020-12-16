@@ -2,7 +2,7 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-15 15:03:55
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-16 18:46:45
+ * @LastEditTime : 2020-12-16 18:52:47
  * @Description  : 
  * @FilePath     : \My-gatsby-blog\gatsby-node.js
  */
@@ -61,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // 每页数量
-  const pageSize = 2
+  const pageSize = 10
 
   // 创建每页list
   function creatPageList(posts,component,path, obj){
