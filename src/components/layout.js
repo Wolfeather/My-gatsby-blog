@@ -1,3 +1,11 @@
+/*
+ * @Author       : yangwenfan
+ * @Date         : 2020-12-15 15:30:13
+ * @LastEditors  : yangwenfan
+ * @LastEditTime : 2020-12-16 14:41:50
+ * @Description  : 
+ * @FilePath     : \My-gatsby-blog\src\components\layout.js
+ */
 import React from "react"
 import { Link } from "gatsby"
 
@@ -57,7 +65,7 @@ const Layout = ({ location, title, children }) => {
     >
       <header>{header}</header>
       <main>{children}</main>
-      <footer class="footer">
+      <footer className="footer">
         © {new Date().getFullYear()}, powered by Gatsby
       </footer>
     </div>

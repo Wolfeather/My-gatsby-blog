@@ -63,10 +63,20 @@ dark-theme{
 }
 
 .post-view{
-  border: 1px solid gray;
+  box-sizing: border-box;
+  /* border: 1px solid gray; */
 }
 
-
+.tab-span{
+  margin-right:10px;
+}
 footer{
   text-align: center;
+}
+.iconfont{
+  margin-right: 10px;
+}
+
+small{
+  margin-right:10px
 }

@@ -2,9 +2,9 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-15 15:30:13
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-16 17:18:07
+ * @LastEditTime : 2020-12-16 17:19:45
  * @Description  : 
- * @FilePath     : \My-gatsby-blog\src\templates\blog.js
+ * @FilePath     : \My-gatsby-blog\src\templates\tags.js
  */
 import React from "react"
 import { Link, graphql } from "gatsby"
@@ -16,16 +16,18 @@ import BlogBlock from '../components/blogBlock'
 // import { rhythm, scale } from "../utils/typography"
 
 
-const BlogTemplate = ({ data,pageContext, location }) => {
+const TagsTemplate = ({ data,pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const {
     totalPage,
     currentPage,
     // limit,
     // skip,
+    tags
   } = pageContext
   const posts = data.allMarkdownRemark.edges
   const title = "首页"
+  const path = "/tags/" + tags + '/'
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={title} />
@@ -34,7 +36,7 @@ const BlogTemplate = ({ data,pageContext, location }) => {
       <div>
           {currentPage - 1 > 0 && (
             <Link
-              to={'/blog/' + (currentPage - 1 === 1 ? '' : currentPage - 1)}
+              to={path + (currentPage - 1 === 1 ? '' : currentPage - 1)}
               rel="prev"
             >
               ← 上一页
@@ -43,7 +45,7 @@ const BlogTemplate = ({ data,pageContext, location }) => {
         </div>
         <div>
           {currentPage + 1 <= totalPage && (
-            <Link to={'/blog/' + (currentPage + 1)} rel="next">
+            <Link to={path + (currentPage + 1)} rel="next">
               下一页 →
             </Link>
           )}
@@ -52,10 +54,10 @@ const BlogTemplate = ({ data,pageContext, location }) => {
   )
 }
 
-export default BlogTemplate
+export default TagsTemplate
 
 export const pageQuery = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query($skip: Int!, $limit: Int!, $tags: String!) {
     site {
       siteMetadata {
         title
@@ -66,6 +68,7 @@ export const pageQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
+      filter: {frontmatter: {tags: {eq: $tags}}}
     ) {
       edges {
         node {
