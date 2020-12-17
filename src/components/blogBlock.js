@@ -2,14 +2,18 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-16 14:18:58
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-16 18:42:43
+ * @LastEditTime : 2020-12-17 11:39:53
  * @Description  : 
  * @FilePath     : \My-gatsby-blog\src\components\blogBlock.js
  */
 
 import React from "react";
 import { Link } from "gatsby"
-import { rhythm, scale } from "../utils/typography"
+import { 
+  rhythm, 
+  // scale, 
+} from "../utils/typography"
+import TagTemplate from './tagTemplate'
 
 const BlogBlock = ({node}) =>{
   console.log(node);
@@ -28,16 +32,7 @@ const BlogBlock = ({node}) =>{
           </Link>
         </h3>
         {/* 日期和标签 */}
-        <small> 
-          <i className="iconfont icon-calendar"></i>
-          {node.frontmatter.date}
-        </small>
-        <small>
-          <i className="iconfont icon-tag"></i>
-          {node.frontmatter.tags.map(i=>
-          <Link className="tab-span" key={i} to={'tags/'+i}>{i}</Link>
-          )}
-        </small>
+        <TagTemplate date={node.frontmatter.date} tags={node.frontmatter.tags} />
       </header>
       <section>
         {/* 简介 */}

@@ -2,17 +2,22 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-15 15:30:13
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-16 19:05:28
+ * @LastEditTime : 2020-12-17 19:32:42
  * @Description  : 
  * @FilePath     : \My-gatsby-blog\src\templates\blog-post.js
  */
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { 
+  rhythm, 
+  // scale,
+} from "../utils/typography"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import TagTemplate from '../components/tagTemplate'
+
 
 
 // 博客模板页面
@@ -20,9 +25,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-
+  console.log(post.tableOfContents);
   return (
     <Layout location={location} title={siteTitle}>
+      <div className="toc" dangerouslySetInnerHTML={{__html:post.tableOfContents}}></div>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -37,15 +43,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.title}
           </h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
+          <TagTemplate className="mb-1 mt-1" date={post.frontmatter.date} tags={post.frontmatter.tags}/>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -93,6 +91,7 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      tableOfContents
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")

@@ -2,18 +2,20 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-15 15:30:13
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-16 15:20:48
+ * @LastEditTime : 2020-12-17 11:14:47
  * @Description  : 
  * @FilePath     : \My-gatsby-blog\src\pages\index.js
  */
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { 
+  // Link, 
+  graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogBlock from '../components/blogBlock'
-import { rhythm } from "../utils/typography"
+// import { rhythm } from "../utils/typography"
 
 
 // 首页

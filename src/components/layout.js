@@ -2,7 +2,7 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-15 15:30:13
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-16 14:41:50
+ * @LastEditTime : 2020-12-17 11:08:37
  * @Description  : 
  * @FilePath     : \My-gatsby-blog\src\components\layout.js
  */
@@ -12,10 +12,13 @@ import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 
 const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
+  // const rootPath = `${__PATH_PREFIX__}/`
+  const rootPath = `blog`
   let header
-
-  if (location.pathname === rootPath) {
+  console.log('rootPath:', rootPath);
+  const isHomePage = location.pathname.includes(rootPath)
+  if (isHomePage) {
+    // 如果是首页
     header = (
       <h1
         style={{
@@ -36,6 +39,7 @@ const Layout = ({ location, title, children }) => {
       </h1>
     )
   } else {
+    // 如果不是首页
     header = (
       <h3
         style={{

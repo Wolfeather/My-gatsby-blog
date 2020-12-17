@@ -2,17 +2,20 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-15 15:30:13
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-16 19:08:13
+ * @LastEditTime : 2020-12-17 10:51:37
  * @Description  : 
  * @FilePath     : \My-gatsby-blog\src\templates\tags.js
  */
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { 
+  // Link, 
+  graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogBlock from '../components/blogBlock'
+import Pagination from '../components/pagination'
 // import { rhythm, scale } from "../utils/typography"
 
 
@@ -33,25 +36,7 @@ const TagsTemplate = ({ data,pageContext, location }) => {
       <SEO title={title} />
       <Bio />
       {posts.map(({ node }) => <BlogBlock node={node} key={node.excerpt}/>)}
-      <ul className="pagination">
-        <li>
-          {currentPage - 1 > 0 && (
-            <Link
-              to={ path + (currentPage - 1 === 1 ? '' : currentPage - 1)}
-              rel="prev"
-            >
-              ← 上一页
-            </Link>
-          )}
-        </li>
-        <li>
-          {currentPage + 1 <= totalPage && (
-            <Link to={ path + (currentPage + 1)} rel="next">
-              下一页 →
-            </Link>
-          )}
-        </li>
-      </ul>
+      <Pagination pageContext={{totalPage,currentPage,path}} />
     </Layout>
   )
 }

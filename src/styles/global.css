@@ -67,19 +67,10 @@ dark-theme{
   /* border: 1px solid gray; */
 }
 
-.tab-span{
-  margin-right:10px;
-}
 footer{
   text-align: center;
 }
-.iconfont{
-  margin-right: 10px;
-}
 
-small{
-  margin-right:10px
-}
 
 .pagination{
   display: flex;
@@ -87,4 +78,20 @@ small{
   justify-content: space-between;
   list-style: none;
   padding: 0px;
+}
+
+.mt-1{
+  margin-top: 1rem;
+}
+
+.mb-1{
+  margin-bottom: 1rem;
+}
+
+.ml-1{
+  margin-left: 1rem;
+}
+
+.mr-1{
+  margin-right: 1rem;
 }

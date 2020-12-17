@@ -2,17 +2,20 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-15 15:30:13
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-16 19:06:31
+ * @LastEditTime : 2020-12-17 11:14:18
  * @Description  : 
  * @FilePath     : \My-gatsby-blog\src\templates\blog.js
  */
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { 
+  // Link, 
+  graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogBlock from '../components/blogBlock'
+import Pagination from '../components/pagination'
 // import { rhythm, scale } from "../utils/typography"
 
 
@@ -26,30 +29,13 @@ const BlogTemplate = ({ data,pageContext, location }) => {
   } = pageContext
   const posts = data.allMarkdownRemark.edges
   const title = "首页"
+  const path = '/blog/'
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={title} />
       <Bio />
-      {posts.map(({ node }) => <BlogBlock node={node} key={node.excerpt}/>)}
-      <ul className="pagination">
-        <li>
-          {currentPage - 1 > 0 && (
-            <Link
-              to={'/blog/' + (currentPage - 1 === 1 ? '' : currentPage - 1)}
-              rel="prev"
-            >
-              ← 上一页
-            </Link>
-          )}
-        </li>
-        <li>
-          {currentPage + 1 <= totalPage && (
-            <Link to={'/blog/' + (currentPage + 1)} rel="next">
-              下一页 →
-            </Link>
-          )}
-        </li>
-      </ul>
+      {posts.map(({ node }) => <BlogBlock node={node} key={node.excerpt} />)}
+      <Pagination pageContext={{totalPage,currentPage,path}} />
     </Layout>
   )
 }
