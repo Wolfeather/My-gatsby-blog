@@ -2,14 +2,15 @@
  * @Author       : yangwenfan
  * @Date         : 2020-12-15 15:30:13
  * @LastEditors  : yangwenfan
- * @LastEditTime : 2020-12-17 11:08:37
+ * @LastEditTime : 2020-12-22 17:07:54
  * @Description  : 
  * @FilePath     : \My-gatsby-blog\src\components\layout.js
  */
 import React from "react"
 import { Link } from "gatsby"
-
 import { rhythm, scale } from "../utils/typography"
+
+import Footer from './footer'
 
 const Layout = ({ location, title, children }) => {
   // const rootPath = `${__PATH_PREFIX__}/`
@@ -69,9 +70,7 @@ const Layout = ({ location, title, children }) => {
     >
       <header>{header}</header>
       <main>{children}</main>
-      <footer className="footer">
-        © {new Date().getFullYear()}, powered by Gatsby
-      </footer>
+      <Footer/>
     </div>
   )
 }
